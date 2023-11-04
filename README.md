@@ -1,124 +1,112 @@
-# E-Commerce Full Stack Project
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Description
+# API Documentation for Ecommerce Project API with Node.js and Express
 
-A full-stack eCommerce application built with React and Spring Boot And Node Js. The project aims to provide users with a seamless online shopping experience, featuring a responsive and user-friendly interface, a wide range of products, and secure payment options.
+Welcome to the documentation for the Ecommerce Project API! This API provides a set of endpoints and functionalities to interact with our eCommerce platform programmatically. With this API, you can build applications, integrations, and automate various tasks related to our online store.
 
-## Server
-###### spring boot: https://github.com/ashok0001/e-commerce-server
-###### node js: https://github.com/ashok0001/ecommerce-node
+**Base URL**: `http://localhost:5454`
 
-## Table of Contents
+## Authentication
 
-- [Features](#features)
-- [Demo](#demo)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-- [Screenshots](#screenshots)
+All protected endpoints require the `Authorization` header with a valid token.
 
-## Features
+## Endpoints
 
-- User registration and authentication.
-- Browse through a variety of products in different categories.
-- Add products to the cart and manage cart items.
-- Checkout process with various payment options.
-- Order history and tracking.
-- Admin panel to manage products, categories, and orders.
+### Update Cart Item
 
-## Demo
+- **URL**: `/api/cart_items/{cartItemId}`
+- **Method**: PUT
+- **Tags**: cart-item-controller
+- **Request Parameters**:
+  - `cartItemId` (integer, int64, required)
+- **Request Headers**:
+  - `Authorization` (string, required)
+- **Request Body**:
+  ```json
+  {
+    "$ref": "#/components/schemas/CartItem"
+  }
+  ```
+- **Responses**:
+  - 200 OK
+    ```json
+    {
+      "$ref": "#/components/schemas/CartItem"
+    }
+    ```
 
-[shopwithzosh](https://shopwithzosh.vercel.app/)
+### Delete Cart Item
 
-## Technologies Used
+- **URL**: `/api/cart_items/{cartItemId}`
+- **Method**: DELETE
+- **Tags**: cart-item-controller
+- **Request Parameters**:
+  - `cartItemId` (integer, int64, required)
+- **Request Headers**:
+  - `Authorization` (string, required)
+- **Responses**:
+  - 200 OK
+    ```json
+    {
+      "$ref": "#/components/schemas/ApiResponse"
+    }
+    ```
 
-- Frontend:
-  - React: JavaScript library for building user interfaces.
-  - Redux: State management library for React applications.
-  - HTML/CSS: Markup and styling of the application.
-  - Axios: HTTP client for making API requests.
-  - MUI: CSS components library.
-  - Tailwind Css.
+### Add Item to Cart
 
-- Backend:
-  - Spring Boot: Java framework for building robust and scalable backend applications.
-  - Spring Security: Authentication and authorization for the API endpoints.
-  - Spring Data JPA: Database access and ORM tool.
-  - MySQL : Database to store application data.
+- **URL**: `/api/cart/add`
+- **Method**: PUT
+- **Tags**: cart-controller
+- **Request Headers**:
+  - `Authorization` (string, required)
+- **Request Body**:
+  ```json
+  {
+    "$ref": "#/components/schemas/AddItemRequest"
+  }
+  ```
+- **Responses**:
+  - 200 OK
+    ```json
+    {
+      "$ref": "#/components/schemas/ApiResponse"
+    }
+    ```
 
-## Installation
+... (continue documenting other endpoints)
 
-1. Clone Frontend repository: `git clone https://github.com/ashok0001/e-commerce-server.git`
-2. Clone Backend Repository: `git clone https://github.com/ashok0001/e-commerce-server.git`
-3. Change directory Frontend:`cd shopwithzosh`
-4. Change directory Backend: `cd e-commerce-server`
-5. Install frontend dependencies: `npm install`
-6. Install backend dependencies
+## Components
 
-## Usage
+### Schemas
 
-1. Start the frontend application: `npm start`
-2. Start the backend server:
-3. Access the application at `http://localhost:3000` in your web browser.
+- CartItem
+- ApiResponse
+- AddItemRequest
+- Product
+- Order
+- User
+- AuthResponse
+- ReviewRequest
+- Review
+- RatingRequest
+- Rating
+- PaymentLinkResponse
+- Address
+- CreateProductRequest
+- PageProduct
 
-## API Endpoints
+## Servers
 
-List the available API endpoints along with their descriptions and the necessary request and response formats.
-
-Example:
-
-[Checkout All Endpoints Here...](https://e-commerce-server-production-0873.up.railway.app/swagger-ui/index.html)
-
-## Contributing
-
-Contributions are welcome! If you find any bugs or want to add new features, please submit an issue or create a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Server 1:
+  - URL: `http://localhost:5454`
+  - Description: Generated server URL
 
 ## Contact
 
-If you have any questions or suggestions, feel free to contact me:
+For any queries or issues, please contact **Ashok Zarmariya** at `ashokzarmariya@gmail.com`.
 
-- Ashok Zarmariya
-- ashokzarmariya47@gmail.com
-- [Linkedin](https://www.linkedin.com/in/ashok-zarmariya-473aa722a/)
+## License
 
-Feel free to customize the README to include more specific information about your project. Good luck with your eCommerce full-stack application!
+This API is licensed under **Ashok Zarmariya**.
 
-## ScreenShots
-
-### Home Carousel
-![Screenshot (120)](https://github.com/ashok0001/shopwithzosh/assets/93376968/a559ba7a-3350-41b8-9151-5813ad0b3597)
-
-
-### Multi Product Carousel
-![Screenshot (121)](https://github.com/ashok0001/shopwithzosh/assets/93376968/089666de-bbfa-4218-876e-5dbe7306325c)
-
-
-### Products Page
-![Screenshot (119)](https://github.com/ashok0001/shopwithzosh/assets/93376968/4f200711-b90e-4324-bc74-5f7beb01125d)
-
-
-### Product Details Page
-![Screenshot (122)](https://github.com/ashok0001/shopwithzosh/assets/93376968/53f2b45d-3e49-4d58-9249-15e85bd7aca5)
-
-
-### Cart Page
-![Screenshot (123)](https://github.com/ashok0001/shopwithzosh/assets/93376968/50a05948-8f06-48eb-b526-d1ac62bdd3ca)
-
-
-### Add Shipping Address
-![Screenshot (100)](https://github.com/ashok0001/shopwithzosh/assets/93376968/c8354400-8fac-4ee6-b2d4-6c3b79d696c7)
-
-
-### Order Summery
-![Screenshot (101)](https://github.com/ashok0001/shopwithzosh/assets/93376968/2847231f-72ff-46de-9426-ded1e9133326)
 
